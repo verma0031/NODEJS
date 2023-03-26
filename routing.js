@@ -1,13 +1,8 @@
-const http = require('http');
 const fs = require('fs');
-const port=3000;
 
-
-
-const server = http.createServer( (req , res) =>{
+const requestHandeler = (req , res)=>{
     const url = req.url;
     const method = req.method;
-
     if(url === '/'){
         // const filePath = path.join(_dirname , "message.txt");
         fs.readFile("message.txt", {encoding: "utf-8"} , (err, data) => {
@@ -23,7 +18,7 @@ const server = http.createServer( (req , res) =>{
     <input type="submit" value="SAVE">
     </form>
 
-        ${data}
+    <h1 id="demo">${data}</h1>
 
     </body>
     </html>
@@ -54,7 +49,7 @@ const server = http.createServer( (req , res) =>{
         return res.end();
     }
 
-    
-})
 
-server.listen(3000)
+}
+
+module.exports = requestHandeler;
