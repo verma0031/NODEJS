@@ -1,36 +1,21 @@
 const http = require('http');
-const routes = require('./routing.js');
+
+const express  = require('express');
+
 const port=4000;
 
-// const server = http.createServer( ( req , res) =>{
-//     console.log(req);
-//     res.setHeader('Content-type' , 'text/html')
-//     if(req.url === '/home'){
-//         fs.readFile("./home.html" , (err , page)=>{
-//             if(err)
-//             throw err;
-//             res.write(page);
-//             res.end();
-//         })
-//     }
-//     if(req.url === '/about'){
-//         fs.readFile("./about.html" , (err , page)=>{
-//             if(err)
-//             throw err;
-//             res.write(page);
-//             res.end();
-//         })
-//     }
-//     if(req.url === '/node'){
-//         fs.readFile("./node.html" , (err , page)=>{
-//             if(err)
-//             throw err;
-//             res.write(page);
-//             res.end();
-//         })
-//     }
-// })
+const app = express();
 
-const server = http.createServer(routes);
+app.use( (req , res , next)=>{
+    console.log("In the middleware");
+    next(); //allows the request to continue to next middleware
+});
 
-server.listen(port);
+app.use( (req , res , next)=>{
+    console.log("In another middleware");
+    res.send('<h1>Hello form expressJS</h1>');
+});
+
+
+
+app.listen(port);
