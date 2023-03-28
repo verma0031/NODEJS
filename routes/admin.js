@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 router.get('/add-Product' , (req , res , next)=>{
-    res.send(`
+res.send(`
     <form action = "/admin/add-product" method = "POST">
         <input type ="text" name = "title" placeholder = "title"><br/>
         <input type ="text" name = "size" placeholder = "size">
