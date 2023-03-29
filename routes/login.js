@@ -16,7 +16,7 @@ router.get('/login' , (req , res , next)=>{
                 <label for="userName">Username</label>
                 <input type="text" name="userName" id="userName" name="title">
             </div>
-            <button type = "submit" onclick="onSubmit()">Add Product</button>
+            <button type = "submit"">Login</button>
         </form>
 </body>
 </html>  

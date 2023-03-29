@@ -19,9 +19,9 @@ router.get('/messages' , (req , res , next) =>{
             <input type="hidden" name="username" id= "userName">
             <button type = "submit">Send Message </button>
         </form>
-        <br/>
-        ${data}
-        <br/>
+        <br>
+         ${data}
+        <br>
     </body>
     `) 
     })
@@ -31,7 +31,7 @@ router.post('/messages' , (req , res , next )=>{
     let userName = req.body.username;
     let msg = req.body.message;
 
-    fs.writeFile("message.txt" , `${userName} : ${msg}` , {flag : 'a'} , (err)=>{
+    fs.writeFile("message.txt" , `\n${userName} : ${msg}` , {flag : 'a'} , (err)=>{
         err ? console.log(err) : res.redirect('/messages')
     });
     
